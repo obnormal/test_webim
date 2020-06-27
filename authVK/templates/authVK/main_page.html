@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        section{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        article{
+            margin: 10px;
+            text-align: center;
+            width: 150px;
+        }
+        p{
+            margin: 10px;
+        }
+        img{
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h2>Привет, {{ user.first_name }} {{ user.last_name }}</h2>
+<section>
+{% for friend in friends %}
+    <article>
+        <img src="{{ friend.photo_100 }}" onclick="document.location.href='http://vk.com/id{{ friend.id }}'">
+        <p>{{ friend.first_name }} {{ friend.last_name }}</p>
+    </article>
+{% endfor %}
+</section>
+</body>
+</html>
