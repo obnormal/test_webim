@@ -24,7 +24,8 @@ def get_friends_view(request):
                        'friends': friends_list,
                        }
             return render(request, 'authVK/main_page.html', context=context)
-        return HttpResponse('Sorry, we can\'t search your friends')
+        return HttpResponse('Привет {} {}. К сожалению мы не можем найти ваших друзей'.format(request.user.first_name,
+                                                                                            request.user.last_name))
     except KeyError:
         print('Ошибка доступа к странице')
-        return HttpResponse('Forbidden')
+        return HttpResponse('Отказано в доступе к странице')
